@@ -8,7 +8,10 @@ public:
             double percent = brackets[i][1];
             if(income > prevupper){
                 if(income > upper)tax+=(upper-prevupper)*percent/100;
-                else tax+=(income-prevupper)*percent/100;
+                else {
+                    tax+=(income-prevupper)*percent/100;
+                    break;
+                }
             }
             prevupper = upper;
         }
