@@ -1,9 +1,9 @@
 class Solution {
 public:
-    void helper(int n , int open , string &curr , unordered_set<string>& ans){
+    void helper(int n , int open , string &curr , vector<string>& ans){
         if(open > n)return ;
         if(curr.size() == 2*n){
-            if(open == 0)ans.insert(curr);
+            if(open == 0)ans.push_back(curr);
             return;
         }
         if(open > 0){
@@ -19,10 +19,9 @@ public:
     }
 
     vector<string> generateParenthesis(int n) {
-        unordered_set<string> ans;
+        vector<string> ans;
         string curr = "";
         helper(n , 0 , curr , ans);
-        vector<string> v(ans.begin() , ans.end());
-        return v;
+        return ans;
     }
 };
